@@ -15,6 +15,20 @@ if [ "$OPLOG_SIZE" != "" ]; then
     cmd="$cmd --oplogSize $OPLOG_SIZE"
 fi
 
+if [ "$REPLICA_SET" != ""]; then
+    cmd="$cmd --replSet $REPLICA_SET"
+fi
+
+if [ "$SHARD" != "yes"]; then
+    cmd="$cmd --shardsvr"
+fi
+
+if [ "$CFGSRV" != "yes"]; then
+    cmd="$cmd --configsvr"
+fi
+
+
+
 $cmd &
 
 if [ ! -f /data/db/.mongodb_password_set ]; then

@@ -15,6 +15,8 @@ VOLUME /data/db
 ENV AUTH yes
 ENV STORAGE_ENGINE wiredTiger
 ENV JOURNALING yes
+ENV REPLICA_SET rs0
+ENV SHARD yes
 
 ADD run.sh /run.sh
 ADD set_mongodb_password.sh /set_mongodb_password.sh
